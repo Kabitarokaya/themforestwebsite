@@ -1,0 +1,589 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Bootstrap demo</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-SgOJa3DmI69IUzQ2PVdRZhwQ+dy64/BUtbMJw1MZ8t5HZApcHrRKUc4W0kG879m7" crossorigin="anonymous">
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+  <nav class="navbar  navbar-expand-lg">
+    <div class="container">
+      <a class="navbar-brand" href="#">
+        <img class="w-100 image" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAHEAAAAcCAYAAABWFFBUAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAyBpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuMC1jMDYwIDYxLjEzNDc3NywgMjAxMC8wMi8xMi0xNzozMjowMCAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIiB4bWxuczp4bXBNTT0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL21tLyIgeG1sbnM6c3RSZWY9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZVJlZiMiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENTNSBXaW5kb3dzIiB4bXBNTTpJbnN0YW5jZUlEPSJ4bXAuaWlkOjVBQkM2MjNEMUFDRDExRUQ4ODM0QUU2OTU5QjE5N0ZFIiB4bXBNTTpEb2N1bWVudElEPSJ4bXAuZGlkOjVBQkM2MjNFMUFDRDExRUQ4ODM0QUU2OTU5QjE5N0ZFIj4gPHhtcE1NOkRlcml2ZWRGcm9tIHN0UmVmOmluc3RhbmNlSUQ9InhtcC5paWQ6NUFCQzYyM0IxQUNEMTFFRDg4MzRBRTY5NTlCMTk3RkUiIHN0UmVmOmRvY3VtZW50SUQ9InhtcC5kaWQ6NUFCQzYyM0MxQUNEMTFFRDg4MzRBRTY5NTlCMTk3RkUiLz4gPC9yZGY6RGVzY3JpcHRpb24+IDwvcmRmOlJERj4gPC94OnhtcG1ldGE+IDw/eHBhY2tldCBlbmQ9InIiPz56ggICAAAHqUlEQVR42uxaC5RNVRg+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"
+          alt="">
+          <img class="w-100 ll" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAHEAAAAcCAYAAABWFFBUAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAyBpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuMC1jMDYwIDYxLjEzNDc3NywgMjAxMC8wMi8xMi0xNzozMjowMCAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIiB4bWxuczp4bXBNTT0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL21tLyIgeG1sbnM6c3RSZWY9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZVJlZiMiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENTNSBXaW5kb3dzIiB4bXBNTTpJbnN0YW5jZUlEPSJ4bXAuaWlkOjYxMEQ5MTVBMUFDRDExRUQ4MDM2OTgzM0Y1OEZEQTJBIiB4bXBNTTpEb2N1bWVudElEPSJ4bXAuZGlkOjYxMEQ5MTVCMUFDRDExRUQ4MDM2OTgzM0Y1OEZEQTJBIj4gPHhtcE1NOkRlcml2ZWRGcm9tIHN0UmVmOmluc3RhbmNlSUQ9InhtcC5paWQ6NjEwRDkxNTgxQUNEMTFFRDgwMzY5ODMzRjU4RkRBMkEiIHN0UmVmOmRvY3VtZW50SUQ9InhtcC5kaWQ6NjEwRDkxNTkxQUNEMTFFRDgwMzY5ODMzRjU4RkRBMkEiLz4gPC9yZGY6RGVzY3JpcHRpb24+IDwvcmRmOlJERj4gPC94OnhtcG1ldGE+IDw/eHBhY2tldCBlbmQ9InIiPz4Oked3AAAHsElEQVR42uxaC5SVUxQ+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" alt="">
+      </a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar"
+        aria-controls="offcanvasNavbar" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
+        <div class="offcanvas-header">
+          <h5 class="offcanvas-title" id="offcanvasNavbarLabel">Offcanvas</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+        </div>
+        <div class="offcanvas-body">
+          <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
+            <li class="nav-item">
+              <a class="nav-link active" aria-current="page" href="#" >Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link " aria-current="page" href="#">Services</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link " aria-current="page" href="#">Pricing</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link " aria-current="page" href="#">Review</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link " aria-current="page" href="#">Blog</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link " aria-current="page" href="#">Contact us</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link " aria-current="page" href="#"><i class="bi bi-person text-light"></i></a>
+            </li>
+          </ul>
+
+        </div>
+      </div>
+    </div>
+  </nav>
+<script>
+  window.addEventListener('scroll',()=>{
+    if(scrollY>400){
+      document.querySelector('nav').classList.add('s')
+    }
+    else{
+      document.querySelector('nav').classList.remove('s')
+
+    }
+  })
+</script>
+  <header class="bg">
+    <div class="ka">
+      <img class="w-100 text-dark" src="https://ovaxo-shreethemes.vercel.app/static/media/bg-2.efa565b6fa2ee02376c1.jpg" alt="">
+      <div class="content">
+        <div class="container ">
+          <div class="row">
+            <div class="col-lg-10  ">
+              <h3>Get Things Done By </h3>
+              <h3 class="mt-3 pb-3"> Great Remote Team</h3>
+              <p class="pb-2 ">This is just a simple text made for this unique and awesome template, you can replace it
+                with any text.</p>
+
+              <div class="input-group">
+                <input type="email" class="form-control py-3 w rounded-5" placeholder="Email Address/Phone Number"
+                  aria-label="Username" aria-describedby="basic-addon1 required">
+                <button class=" w15 px-5 rounded-5">Register Now <i class="bi bi-arrow-right"></i> </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+
+  </header>
+  <section class="py-4">
+    <div class="container">
+      <div class="row pt-4">
+        <div class="col-lg-5">
+          <img class="w-100 rounded-4 shadow"
+            src="https://ovaxo-shreethemes.vercel.app/static/media/about.cef1f56031030992f8a5.jpg" alt="">
+        </div>
+        <div class="col-lg-6 align-self-center ms-5">
+          <h3>About Us: Ovaxo</h3>
+          <p class="t pt-3">Start working with Ovaxo that can provide everything you need to generate awareness,
+            drive traffic, connect. Dummy text is text that is used in the publishing industry or by web designers to
+            occupy the space which will later be filled with 'real' content. This is required when, for example, the
+            final text is not yet available. Dummy texts have been in use by typesetters since the 16th century.
+
+          </p>
+          <button class="l mt-5">Read More <i class="bi bi-arrow-right-short"></i></button>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- our services start -->
+  <section class="py-5 mb-5 bg1">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-12 text-center">
+          <h4>Our Services </h4>
+          <p>This is just a simple text made for this unique and awesome template, you can replace it with any text.
+          </p>
+        </div>
+      </div>
+      <div class="row pt-4">
+        <div class="col-lg-4 text-center">
+
+          <div class="relative overflow-hidden text-transparent -m-3"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="h-28 w-28 fill-violet-600/5 mx-auto rotate-[30deg]"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"></path></svg><div class="absolute top-2/4 -translate-y-2/4 start-0 end-0 mx-auto text-violet-600 rounded-xl transition duration-500 ease-in-out text-3xl flex align-middle justify-center items-center"><i class="uil uil-adjust-circle"></i></div></div>
+          
+        </div>
+        <div class="col-lg-4 text-center">
+          <i class="bi bi-basket "></i>
+          <h5 class="p-3 mt-3">Drive More Sales</h5>
+          <p>If the distribution of letters and 'words' is random, the reader will not be distracted from making. </p>
+        </div>
+        <div class="col-lg-4 text-center">
+          <i class="bi bi-fire"></i>
+          <h5 class="p-3 mt-3">Handled By Expert</h5>
+          <p>If the distribution of letters and 'words' is random, the reader will not be distracted from making. </p>
+        </div>
+
+      </div>
+      <div class="row pt-4">
+        <div class="col-lg-4 text-center">
+          <i class="bi bi-flower2"></i>
+          <h5 class="p-3 mt-3">Increase Conversion</h5>
+          <p>If the distribution of letters and 'words' is random, the reader will not be distracted from making. </p>
+        </div>
+        <div class="col-lg-4 text-center">
+          <i class="bi bi-basket "></i>
+          <h5 class="p-3 mt-3">Drive More Sales</h5>
+          <p>If the distribution of letters and 'words' is random, the reader will not be distracted from making. </p>
+        </div>
+        <div class="col-lg-4 text-center pb-3">
+          <i class="bi bi-basket "></i>
+          <h5 class="p-3 mt-3">Sales Growth Idea</h5>
+          <p>If the distribution of letters and 'words' is random, the reader will not be distracted from making. </p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+  <!-- our services end -->
+   <!-- play start -->
+ <section class="py-5 mt-5 primary bg1 bgg">
+  <div class="container">
+         <div class="row">
+          <div class="col-lg-10 mx-auto">
+            <div class="position">
+              <img src="https://ovaxo-shreethemes.vercel.app/static/media/cta.1982e5920d9971b4c0ad.jpg" alt="">
+              <div class="play"> <a href=""><i class="bi bi-play-fill"></i></a></div>
+              <iframe width="820" height="462" src="https://www.youtube.com/embed/yba7hPeTSjk"  title="Landrick Saas and Software Landing Page Template" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+            </div>
+          </div>
+         </div>
+          <div class="d-flex pt-4 justify-content-between">
+           <div class="text-center ">
+            <p>Customers needs</p>
+            <h4> Spaces for every size <br>
+             and type of need.</h4>
+           </div>
+           <div>
+            <p>This is just a simple text made for this unique and <br>awesome template, you can replace it with any text.
+            </p>
+             <a href="" class="text-decoration-none text-light">Read More</a>
+           </div>
+          </div>
+  </div>
+ </section>
+
+ <!-- play end -->
+<!-- our comfortable -->
+  <section class="py-4 ">
+    <div class="container">
+      <div class="row bg1">
+        <div class="col-lg-4"></div>
+        <div class="col-lg-5 text-center">
+          <h4>Our Comfortable Pricing </h4>
+          <p>Launch your campaign and benefit from our expertise on designing and managing conversion centered Tailwind
+            CSS html page. </p>
+        </div>
+        <div class="col-lg-3"></div>
+      </div>
+      <div class="row py-4">
+        <div class="col-lg-4">
+          <div class="box1 py-4 px-2">
+            <div class=" px-3">
+              <h4 class="text-dark">Business </h4>
+              <h3><sup>$</sup>10/ month </h3>
+              <p>Basic features for up to 10 users.</p>
+              <button class="start py-3">Started Now</button>
+            </div>
+            <div class="pt-5 px-3 ">
+              <p><i class="bi bi-check-circle text-danger "></i> Complete documentation</p>
+              <p> <i class="bi bi-check-circle text-danger "></i> Working materials in Figma</p>
+              <p><i class="bi bi-check-circle text-danger "></i> 100GB cloud storage</p>
+              <p><i class="bi bi-check-circle text-danger "></i> 500 team members</p>
+              <p><i class="bi bi-check-circle text-danger "></i> Free Support</p>
+            </div>
+
+
+          </div>
+        </div>
+        <div class="col-lg-4 align-self-center bg1">
+          <div class="border-bottom pb-4">
+            <h4 class="px-4">Free</h4>
+            <h3 class="px-3"><sup>$</sup>00 <sub>/ month</sub></h3>
+            <p class=" px-3">Free features for your business.</p>
+            <button class="kab ">Redeem Now</button>
+          </div>
+          <div class="pt-4 px-4 ">
+            <p><i class="bi bi-check-circle text-success"></i> Complete documentation</p>
+            <p><i class="bi bi-check-circle text-success"></i> Working materials in Figma</p>
+            <p><i class="bi bi-check-circle text-success"></i> 100GB cloud storage</p>
+            <p><i class="bi bi-check-circle text-success"></i> 500 team members</p>
+          </div>
+        </div>
+        <div class="col-lg-4 align-self-center bg1">
+          <div class="border-bottom pb-4">
+            <h4 class="px-4">Corporate </h4>
+            <h3 class="px-3"><sup>$</sup>49 <sub>/ month</sub></h3>
+            <p class=" px-3">Corporate features for up to 100 users. </p>
+            <button class="kabt ">Signup Now</button>
+          </div>
+          <div class="pt-4 px-4 ">
+            <p><i class="bi bi-check-circle text-success"></i> Complete documentation</p>
+            <p><i class="bi bi-check-circle text-success"></i> Working materials in Figma</p>
+            <p><i class="bi bi-check-circle text-success"></i> 100GB cloud storage</p>
+            <p><i class="bi bi-check-circle text-success"></i> 500 team members</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- our confortable end -->
+   <!-- client review -->
+  <section class="py-4 bg-body-tertiary bg1">
+    <div class="container">
+      <div class="row py-4">
+        <div class="col-lg-5 mx-auto text-center">
+          <h4>Client's Review</h4>
+          <p>This is just a simple text made for this unique and awesome template, you can replace it with any text.
+          </p>
+        </div>
+      </div>
+      <div class="row py-4">
+        <div class="col-lg-4">
+
+          <div class="box shadow bg-white p-4 rounded-3">
+            <div class="d-flex gap-3 border-bottom pb-3">
+              <div>
+                <img class="w100" src="https://ovaxo-shreethemes.vercel.app/static/media/01.6ac85de7298319b1f8d5.jpg"
+                  alt="">
+              </div>
+              <div>
+                <h5>Thomas Israel</h5>
+                <p>C.E.O</p>
+              </div>
+
+            </div>
+            <p class="py-2 pt-3">I didn't know a thing about icon design until I read this book. Now I can create any
+              icon I
+              need in no time. Great resource!</p>
+            <div class="d-flex gap-2">
+              <i class="bi bi-star-fill text-warning"></i>
+              <i class="bi bi-star-fill text-warning"></i>
+              <i class="bi bi-star-fill text-warning"></i>
+              <i class="bi bi-star-fill text-warning"></i>
+              <i class="bi bi-star-half text-warning"></i>
+            </div>
+          </div>
+
+        </div>
+        <div class="col-lg-4">
+          <div class="box shadow bg-white p-4 rounded-3">
+            <div class="d-flex gap-3 border-bottom pb-4">
+              <div>
+                <img class="w100" src="https://ovaxo-shreethemes.vercel.app/static/media/02.7df14e12e444ad660802.jpg"
+                  alt="">
+              </div>
+              <div>
+                <h5>Carl Oliver</h5>
+                <p>C.E.O</p>
+              </div>
+
+            </div>
+            <p class="py-2 pt-4">The best part about Techwind is every time I pay my employees, my bank balance doesn't
+              go down like it used to. Looking forward to spending this extra cash when I figure out why my card is
+              being declined.</p>
+            <div class="d-flex gap-2">
+              <i class="bi bi-star-fill text-warning"></i>
+              <i class="bi bi-star-fill text-warning"></i>
+              <i class="bi bi-star-fill text-warning"></i>
+              <i class="bi bi-star-fill text-warning"></i>
+              <i class="bi bi-star-half text-warning"></i>
+            </div>
+          </div>
+
+        </div>
+        <div class="col-lg-4">
+          <div class="box shadow bg-white p-4 rounded-3">
+            <div class="d-flex gap-3 border-bottom pb-3">
+              <div>
+                <img class="w100" src="https://ovaxo-shreethemes.vercel.app/static/media/03.ba5f8794c055cc1488b5.jpg"
+                  alt="">
+              </div>
+              <div>
+                <h5>Barbara McIntosh</h5>
+                <p>C.E.O</p>
+              </div>
+
+            </div>
+            <p class="py-2 pt-4">I used to have to remit tax to the EU and with Techwind I somehow don't have to do that
+              anymore. Nervous to travel there now though.</p>
+            <div class="d-flex gap-2">
+              <i class="bi bi-star-fill text-warning"></i>
+              <i class="bi bi-star-fill text-warning"></i>
+              <i class="bi bi-star-fill text-warning"></i>
+              <i class="bi bi-star-fill text-warning"></i>
+              <i class="bi bi-star-half text-warning"></i>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+      <div class="row py-4">
+        <div class="col-lg-4">
+          <div class="box shadow bg-white p-4 rounded-3">
+            <div class="d-flex gap-3 border-bottom pb-2">
+              <div>
+                <img class="w100" src="https://ovaxo-shreethemes.vercel.app/static/media/05.a7ab2c82813cb95da9d6.jpg"
+                  alt="">
+              </div>
+              <div>
+                <h5>Barbara McIntosh</h5>
+                <p>C.E.O</p>
+              </div>
+
+            </div>
+            <p class="py-2 pt-4">There are so many things I had to do with my old software that I just don't do at all
+              with Techwind. Suspicious but I can't say I don't love it.</p>
+            <div class="d-flex gap-2">
+              <i class="bi bi-star-fill text-warning"></i>
+              <i class="bi bi-star-fill text-warning"></i>
+              <i class="bi bi-star-fill text-warning"></i>
+              <i class="bi bi-star-fill text-warning"></i>
+              <i class="bi bi-star-half text-warning"></i>
+            </div>
+          </div>
+
+        </div>
+        <div class="col-lg-4">
+          <div class="box shadow bg-white p-4 rounded-3">
+            <div class="d-flex gap-3 border-bottom pb-2">
+              <div>
+                <img class="w100" src="https://ovaxo-shreethemes.vercel.app/static/media/04.35463172278c4051b5f4.jpg"
+                  alt="">
+              </div>
+              <div>
+                <h5>Jill Webb</h5>
+                <p>C.E.O</p>
+              </div>
+
+            </div>
+            <p class="py-2 pt-4">I'm trying to get a hold of someone in support, I'm in a lot of trouble right now and
+              they are saying it has something to do with my books. Please get back to me right away.</p>
+            <div class="d-flex gap-2">
+              <i class="bi bi-star-fill text-warning"></i>
+              <i class="bi bi-star-fill text-warning"></i>
+              <i class="bi bi-star-fill text-warning"></i>
+              <i class="bi bi-star-fill text-warning"></i>
+              <i class="bi bi-star-half text-warning"></i>
+            </div>
+          </div>
+
+        </div>
+        <div class="col-lg-4">
+          <div class="box shadow bg-white p-4 rounded-3">
+            <div class="d-flex gap-3 pb-3 border-bottom">
+              <div>
+                <img class="w100" src="https://ovaxo-shreethemes.vercel.app/static/media/06.7365b7fa25b4bccc5ff9.jpg"
+                  alt="">
+              </div>
+              <div>
+                <h5>Janisha Doll</h5>
+                <p>C.E.O</p>
+              </div>
+
+            </div>
+            <p class="py-2 pt-4">This is the fourth email I've sent to your support team. I am literally being held in
+              jail for tax fraud. Please answer your damn emails, this is important.
+            </p>
+            <div class="d-flex gap-2">
+              <i class="bi bi-star-fill text-warning"></i>
+              <i class="bi bi-star-fill text-warning"></i>
+              <i class="bi bi-star-fill text-warning"></i>
+              <i class="bi bi-star-fill text-warning"></i>
+              <i class="bi bi-star-half text-warning"></i>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </div>
+    </div>
+  </section>
+  <!-- client review end -->
+   <!-- blogs and news -->
+  <section class="py-4">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-5 bg1 mx-auto text-center">
+          <h4>Blogs or News </h4>
+          <p class="py-3">Launch your campaign and benefit from our expertise on designing and managing conversion
+            centered Tailwind CSS html page. </p>
+
+        </div>
+
+      </div>
+      <div class="row py-4">
+        <div class="col-lg-4 ">
+          <div class="box   bg1 rounded-3 pb-5">
+            <img src="https://ovaxo-shreethemes.vercel.app/static/media/1.8c457aecf7abc9487326.jpg"
+              class="w-100 rounded-3" alt="">
+            <h5 class=" py-3 px-5">Introducing new tools for your design.</h5>
+            <p class="px-5">The phrasal sequence of the is now so that many campaign and benefit</p>
+            <a href="" class=" px-5 text-dark text-decoration-none">Read More <i class="bi bi-arrow-right"></i></a>
+          </div>
+        </div>
+        <div class="col-lg-4 ">
+          <div class="box   bg1 rounded-3 pb-5">
+            <img src="https://ovaxo-shreethemes.vercel.app/static/media/2.e4fee6a92c3eca1ed5a5.jpg"
+              class="w-100 rounded-3" alt="">
+            <h5 class=" py-3 px-5">The Right Hand of Business IT World</h5>
+            <p class="px-5">The phrasal sequence of the is now so that many campaign and benefit</p>
+            <a href="" class=" px-5 text-dark text-decoration-none">Read More <i class="bi bi-arrow-right"></i></a>
+          </div>
+        </div>
+        <div class="col-lg-4 ">
+          <div class="box   bg1 rounded-3 pb-5">
+            <img src="https://ovaxo-shreethemes.vercel.app/static/media/3.424514913bb920049d7a.jpg"
+              class="w-100 rounded-3" alt="">
+            <h5 class=" py-3 px-5">Truck Side Advertising Isn It Time for action.</h5>
+            <p class="px-5">The phrasal sequence of the is now so that many campaign and benefit</p>
+            <a href="" class=" px-5 text-dark text-decoration-none">Read More <i class="bi bi-arrow-right"></i></a>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+  <!-- blogs & news end -->
+   <!-- get in touch -->
+  <section class="py-4 bg-body-tertiary bg1">
+    <div class="container">
+      <div class="row py-4">
+        <div class="col-lg-5 mx-auto text-center">
+
+          <h5>Get In Touch ! </h5>
+          <p>Launch your campaign and benefit from our expertise on designing and managing conversion centered Tailwind
+            CSS html page. </p>
+        </div>
+        <div class="row py-4">
+
+          <div class="col-lg-7 bg-white p-4 border shadow">
+            <form>
+              <div class="d-flex gap-5 w-100">
+                <div>
+                  <input type="text" name="name" id="name" placeholder="Name:" class="w-100 py-2 px-5 border">
+                </div>
+                <div>
+                  <input type="email" name="email" id="email" placeholder="Email:" class="w-100 py-2 px-5 border">
+                </div>
+              </div>
+              <div class="pt-4">
+                <input type="text" name="subject" id="subejct" placeholder="Subject:" class="py-2  border w-100">
+              </div>
+              <div class="pt-4">
+                <textarea name="message" id="message" placeholder="Message:" class="w-100 border" rows="5"></textarea>
+              </div>
+              <div class="pt-4">
+                <button class="text-light rounded-3 px-4 py-2 ">Send Message</button>
+              </div>
+            </form>
+          </div>
+
+          <div class="col-lg-5 bg1 px-5">
+            <div class="py-3">
+              <h4><i class="bi bi-telephone text-dark"></i> Phone</h4>
+              <p>+152 534-468-854</p>
+            </div>
+            <div class="py-3">
+              <h4>Email</h4>
+              <a href="mailto:contact@example.com"></a><i class="bi bi-envelope text-dark"></i> contact@example.com
+            </div>
+            <div class="py-3">
+              <h4><i class="bi bi-geo-alt text-dark"></i> Location</h4>
+               <p> C/54 Northwest Freeway, Suite 558, Houston, USA 485</p>
+            </div>
+          </div>
+        </div>
+  </section>
+  <!-- get in touch end -->
+  <footer class="bg-dark bg1 text-light py-3">
+
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-3"></div>
+        <div class="col-lg-6 text-center">
+          <img
+            src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAYAAACqaXHeAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAyBpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuMC1jMDYwIDYxLjEzNDc3NywgMjAxMC8wMi8xMi0xNzozMjowMCAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIiB4bWxuczp4bXBNTT0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL21tLyIgeG1sbnM6c3RSZWY9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZVJlZiMiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENTNSBXaW5kb3dzIiB4bXBNTTpJbnN0YW5jZUlEPSJ4bXAuaWlkOkFDQUI5RjQ4MUM1ODExRUQ5MDJDREY1MEZENzY2MkZFIiB4bXBNTTpEb2N1bWVudElEPSJ4bXAuZGlkOkFDQUI5RjQ5MUM1ODExRUQ5MDJDREY1MEZENzY2MkZFIj4gPHhtcE1NOkRlcml2ZWRGcm9tIHN0UmVmOmluc3RhbmNlSUQ9InhtcC5paWQ6QUNBQjlGNDYxQzU4MTFFRDkwMkNERjUwRkQ3NjYyRkUiIHN0UmVmOmRvY3VtZW50SUQ9InhtcC5kaWQ6QUNBQjlGNDcxQzU4MTFFRDkwMkNERjUwRkQ3NjYyRkUiLz4gPC9yZGY6RGVzY3JpcHRpb24+IDwvcmRmOlJERj4gPC94OnhtcG1ldGE+IDw/eHBhY2tldCBlbmQ9InIiPz4oYNX2AAAGQUlEQVR42uxbC2wVRRSd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"
+            alt="">
+          <p>Launch your campaign and benefit from our expertise on designing and managing conversion centered Tailwind
+            CSS html page. </p>
+        </div>
+      </div>
+      <div>
+        <ul class="d-flex justify-content-center list-unstyled gap-4 p-4 pb-5 kaa ">
+          <li><a href="" class="text-light text-decoration-none"> Services</a></li>
+          <li><a href="" class="text-light text-decoration-none">About Us</a></li>
+          <li><a href="" class="text-light text-decoration-none">Blogs</a></li>
+          <li><a href="" class="text-light text-decoration-none">Team</a></li>
+          <li><a href="" class="text-light text-decoration-none">Pricing</a></li>
+          <li><a href="" class="text-light text-decoration-none">Contact Us</a></li>
+        </ul>
+
+      </div>
+      <div class="row bor py-5">
+        <div class="col-lg-6">
+          <p >©2025 Ovaxo. Design & Develop with <i class="bi bi-suit-heart-fill text-danger"></i> by <a href="https://Shreethemes.com" class="text-light text-decoration-none abc">Shreethemes.</a></p>
+        </div>
+        <div class="col-lg-6 justify-content-end">
+          <ul class="d-flex gap-4 list-unstyled justify-content-end ">
+            <li><a href="https://dribble.com " target="_blank" class="text-light"><i class="bi bi-dribbble "></i></a>
+            </li>
+            <li><a href="https://behance.com" target="_blank" class="text-light"><i class="bi bi-behance "></i></a></li>
+            <li><a href="https://facebook.com" target="_blank" class="text-light"><i class="bi bi-facebook "></i></a>
+            </li>
+            <li><a href="https://twitter.com" target="_blank" class="text-light"><i class="bi bi-twitter "></i></a></li>
+            <li><a href="mailto:abc.gmail.com" target="_blank" class="text-light"><i class="bi bi-envelope "></i></a>
+            </li>
+            <li><a href="https://instagram.com" target="_blank" class="text-light"><i class="bi bi-instagram "></i></a>
+            </li>
+            <li><a href="https//file.com" target="_blank" class="text-light"><i
+                  class="bi bi-file-earmark-fill "></i></a></li>
+
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    </div>
+    </div>
+    </div>
+  </footer>
+
+
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-k6d4wzSIapyDyv1kpU366/PK5hCdSbCRGRCMv+eplOQJWyd1fbcAu9OCUj5zNLiq"
+    crossorigin="anonymous"></script>
+</body>
+
+</html>
